@@ -1,4 +1,3 @@
-package graphs;
 /*
 http://codeforces.com/contest/186/problem/B
  */
