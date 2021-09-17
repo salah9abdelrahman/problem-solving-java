@@ -1,7 +1,3 @@
-/*
-http://codeforces.com/contest/186/problem/B
- */
-
 import java.util.*;
 
 public class BGrowingMushrooms {
