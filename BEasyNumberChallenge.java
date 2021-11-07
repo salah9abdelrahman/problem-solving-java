@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/*
+http://codeforces.com/contest/236/problem/B
+ */
 public class BEasyNumberChallenge {
     static long[] arr = new long[100_00_01];
 
