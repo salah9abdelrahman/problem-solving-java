@@ -12,6 +12,8 @@ public class DailyTemperatures {
         Arrays.stream(dailyTemperatures_bruteForce(new int[]{73, 74, 75, 71, 69, 72, 76, 73})).forEach(i -> System.out.print(i + " "));
         System.out.println();
         Arrays.stream(dailyTemperatures_monotonicStack(new int[]{73, 74, 75, 71, 69, 72, 76, 73})).forEach(i -> System.out.print(i + " "));
+        System.out.println();
+        Arrays.stream(dailyTemperatures_monotonicStack_leetCodeSolution(new int[]{73, 74, 75, 71, 69, 72, 76, 73})).forEach(i -> System.out.print(i + " "));
     }
 
     public static int[] dailyTemperatures_bruteForce(int[] temperatures) {
@@ -42,5 +44,23 @@ public class DailyTemperatures {
             stack.push(i);
         }
         return ans;
+    }
+
+    public static int[] dailyTemperatures_monotonicStack_leetCodeSolution(int[] temperatures) {
+        int n = temperatures.length;
+        int[] answer = new int[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int currDay = 0; currDay < n; currDay++) {
+            // Pop until the current day's temperature is not
+            // warmer than the temperature at the top of the stack
+            while (!stack.isEmpty() && temperatures[stack.peek()] <  temperatures[currDay]) {
+                int prevDay = stack.pop();
+                answer[prevDay] = currDay - prevDay;
+            }
+            stack.push(currDay);
+        }
+
+        return answer;
     }
 }
