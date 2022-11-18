@@ -1,4 +1,4 @@
-package binarySearch;
+package binary_search;
 
 public class BinarySearchAlgorithms {
     static final int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};

@@ -1,4 +1,4 @@
-package AlgorithmsAndDS;
+package algorithms_and_ds;
 
 import java.util.Arrays;
 import java.util.Stack;
