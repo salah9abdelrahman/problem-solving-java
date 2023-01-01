@@ -74,6 +74,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
+/out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -131,4 +132,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
