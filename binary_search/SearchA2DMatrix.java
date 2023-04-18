@@ -1,4 +1,4 @@
-package leetcode;
+package binary_search;
 
 /*
 https://leetcode.com/problems/search-a-2d-matrix/description/?envType=study-plan&id=data-structure-i
