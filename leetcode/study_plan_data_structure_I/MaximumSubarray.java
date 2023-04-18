@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.study_plan_data_structure_I;
 
 /*
     https://leetcode.com/problems/maximum-subarray
