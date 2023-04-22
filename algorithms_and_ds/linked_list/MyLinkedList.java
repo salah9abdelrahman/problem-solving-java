@@ -24,6 +24,10 @@ public class MyLinkedList<T> {
         }
     }
 
+    class Index {
+        public int val = 0;
+    }
+
     public MyLinkedList() {
         head = null;
     }
@@ -82,12 +86,60 @@ public class MyLinkedList<T> {
             while (runner.next != null) {
                 if (runner.next.data == current.data) {
                     runner.next = runner.next.next;
-                }else {
+                } else {
                     runner = runner.next;
                 }
             }
             current = current.next;
         }
+    }
+
+    /**
+     * Using recursion
+     * Time O(n)
+     * Space O(n)
+     */
+    public Node nthToLast(int k) {
+        return nthToLast(head, k, new Index());
+    }
+
+    public Node nthToLast(Node head, int k, Index idx) {
+        if (head == null) {
+            return null;
+        }
+        Node node = nthToLast(head.next, k, idx);
+        idx.val += 1;
+        if (idx.val == k) {
+            return head;
+        }
+        return node;
+    }
+
+    /**
+     * using Iteration
+     * Time O(n)
+     * Space O(1)
+     */
+    public Node nthToLastIterative(int k) {
+        Node p1 = head;
+        Node p2 = head;
+
+        /* Move p1 k nodes into the list*/
+        for (int i = 0; i < k; i++) {
+            if (p1 == null) {
+                return null;
+            }
+            p1 = p1.next;
+        }
+
+        /* Move them at the same place. When p1 hits the end, p2 will be the right element */
+        while (p1 != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        return p2;
+
     }
 
 
