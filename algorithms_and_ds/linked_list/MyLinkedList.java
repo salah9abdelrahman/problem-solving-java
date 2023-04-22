@@ -1,17 +1,18 @@
 package algorithms_and_ds.linked_list;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
-public class MyLinkedList<T> {
+public class MyLinkedList {
 
     Node head;
 
     public class Node {
-        T data;
+        int data;
         Node next;
 
-        public Node(T data) {
+        public Node(int data) {
             this.data = data;
             next = null;
         }
@@ -32,7 +33,7 @@ public class MyLinkedList<T> {
         head = null;
     }
 
-    public Node add(T data) {
+    public Node add(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -60,7 +61,7 @@ public class MyLinkedList<T> {
      * Space O(n)
      */
     public void removeDuplicates() {
-        Set<T> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         Node previous = null;
         Node node = head;
         while (node != null) {
@@ -148,6 +149,39 @@ public class MyLinkedList<T> {
         node.data = next.data;
         node.next = next.next;
         return true;
+    }
+
+    void partition(int x) {
+        Node beforeStart = null;
+        Node beforeEnd = null;
+        Node afterStart = null;
+        Node afterEnd = null;
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            current.next = null;
+            if (current.data < x) {
+                if (beforeStart == null) {
+                    beforeStart = current;
+                } else {
+                    beforeEnd.next = current;
+                }
+                beforeEnd = current;
+
+            } else {
+                if (afterStart == null) {
+                    afterStart = current;
+                } else {
+                    afterEnd.next = current;
+                }
+                afterEnd = current;
+            }
+            current = next;
+        }
+        if (beforeStart == null) {
+            return;
+        }
+        beforeEnd.next = afterStart;
     }
 
 
