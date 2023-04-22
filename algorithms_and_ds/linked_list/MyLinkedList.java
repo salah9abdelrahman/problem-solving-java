@@ -137,10 +137,19 @@ public class MyLinkedList<T> {
             p1 = p1.next;
             p2 = p2.next;
         }
-
         return p2;
-
     }
+
+    boolean deleteMiddleNode(Node node) {
+        if (node == null || node.next == null) {
+            return false;
+        }
+        Node next = node.next;
+        node.data = next.data;
+        node.next = next.next;
+        return true;
+    }
+
 
 
 }
