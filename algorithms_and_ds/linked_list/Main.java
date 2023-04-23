@@ -37,5 +37,20 @@ public class Main {
         linkedList2.partition(5);
         linkedList2.print();
 
+        System.out.println("Add Lists");
+        MyLinkedList linkedListToAdd1 = new MyLinkedList();
+        linkedListToAdd1.add(7);
+        linkedListToAdd1.add(1);
+        linkedListToAdd1.add(6);
+        MyLinkedList linkedListToAdd2 = new MyLinkedList();
+        linkedListToAdd2.add(5);
+        linkedListToAdd2.add(9);
+        linkedListToAdd2.add(2);
+
+        linkedListToAdd1.print();
+        linkedListToAdd2.print();
+        System.out.println(MyLinkedList.addLists(linkedListToAdd1.head, linkedListToAdd2.head));
+
+
     }
 }

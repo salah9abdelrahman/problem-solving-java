@@ -184,6 +184,23 @@ public class MyLinkedList {
         beforeEnd.next = afterStart;
     }
 
+    public static int addLists(Node node1, Node node2) {
+        Node firstNode = node1;
+        Node secondNode = node2;
+        int result = 0;
+        int count = 1;
+        int reminder = 0;
+        while (firstNode != null) {
+            int x = firstNode.data + secondNode.data + reminder;
+            int y = (x % 10) * count;
+            result += y;
+            reminder = x / 10;
+            count *= 10;
 
+            firstNode = firstNode.next;
+            secondNode = secondNode.next;
+        }
+        return result;
+    }
 
 }
