@@ -19,6 +19,10 @@ public class LinkedListCycle {
         System.out.println(detectCycle(n1));
     }
 
+    /**
+     * Time O(n)
+     *  space O(1)
+     */
     public static boolean detectCycle(LinkedListNode head) {
         LinkedListNode slowP = head;
         LinkedListNode fastP = head;
