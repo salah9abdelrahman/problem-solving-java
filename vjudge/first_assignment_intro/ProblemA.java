@@ -1,4 +1,4 @@
-package vjudge.first_package_intro;
+package vjudge.first_assignment_intro;
 
 import java.util.Scanner;
 
