@@ -1,5 +1,7 @@
 package patterns.fast_slow_patterns;
-
+/*
+ * https://leetcode.com/problems/middle-of-the-linked-list/description/
+ */
 public class MiddleOfTheLinkedList {
     public static void main(String[] args) {
         LinkedListNode n1 = new LinkedListNode(1);
@@ -8,7 +10,7 @@ public class MiddleOfTheLinkedList {
         LinkedListNode n4 = new LinkedListNode(4);
         LinkedListNode n5 = new LinkedListNode(5);
         LinkedListNode n6 = new LinkedListNode(6);
-
+ 
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;

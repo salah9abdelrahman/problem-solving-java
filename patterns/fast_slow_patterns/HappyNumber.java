@@ -1,8 +1,12 @@
 package patterns.fast_slow_patterns;
 
+/**
+ * https://leetcode.com/problems/happy-number/description/
+ */
+
 public class HappyNumber {
     public static void main(String[] args) {
-        System.out.println(isHappyNumber(4));
+        System.out.println(isHappyNumber(999));
     }
 
     /**
