@@ -13,6 +13,11 @@ public class CircularArrayLoop {
         System.out.println(circularArrayLoop_twoPointers(new int[] { 1, 3, -2, -4, 1 }));
     }
 
+    /*
+     * Time O(n)^2
+     * space O(1)
+     */
+
     public static boolean circularArrayLoop_twoPointers(int[] nums) {
         int size = nums.length;
         // Iterate through each index of the array 'nums'.
@@ -75,7 +80,10 @@ public class CircularArrayLoop {
     }
 
     /**
-     * Another solution, O(n) ^2, but two pointers is better due to space complicity
+     * Another solution:
+     * Time O(n) ^2
+     * space O(n)
+     * two pointers is better due to space complicity
      */
 
     public static boolean circularArrayLoop(int[] nums) {
