@@ -11,7 +11,9 @@ public class FindTheDuplicateNumber {
         // 4, 6 }));
         // System.out.println(findDuplicate_ArrayAsHashMap(new int[] { 1, 5, 4, 3, 2, 4,
         // 6 }));
-        System.out.println(findDuplicate_cyclicSort(new int[] { 1, 5, 4, 3, 2, 4, 6 }));
+        // System.out.println(findDuplicate_cyclicSort(new int[] { 1, 5, 4, 3, 2, 4, 6
+        // }));
+        System.out.println(findDuplicate_floyd(new int[] { 2, 5, 9, 6, 9, 3, 8, 9, 7, 1 }));
 
     }
 
@@ -66,6 +68,28 @@ public class FindTheDuplicateNumber {
             nums[0] = nxt;
         }
         return nums[0];
+    }
+
+    static public int findDuplicate_floyd(int[] nums) {
+
+        // Find the intersection point of the two runners.
+        int tortoise = nums[0];
+        int hare = nums[0];
+
+        do {
+            tortoise = nums[tortoise];
+            hare = nums[nums[hare]];
+        } while (tortoise != hare);
+
+        // Find the "entrance" to the cycle.
+        tortoise = nums[0];
+
+        while (tortoise != hare) {
+            tortoise = nums[tortoise];
+            hare = nums[hare];
+        }
+
+        return hare;
     }
 
 }
