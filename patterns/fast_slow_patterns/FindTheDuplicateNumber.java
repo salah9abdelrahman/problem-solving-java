@@ -13,7 +13,8 @@ public class FindTheDuplicateNumber {
         // 6 }));
         // System.out.println(findDuplicate_cyclicSort(new int[] { 1, 5, 4, 3, 2, 4, 6
         // }));
-        System.out.println(findDuplicate_floyd(new int[] { 2, 5, 9, 6, 9, 3, 8, 9, 7, 1 }));
+        System.out.println(findDuplicate_floyd(new int[] { 1, 5, 4, 3, 2, 4, 6}));
+        // System.out.println(findDuplicate_floyd(new int[] { 2, 5, 9, 6, 9, 3, 8, 9, 7, 1 }));
 
     }
 
@@ -69,6 +70,12 @@ public class FindTheDuplicateNumber {
         }
         return nums[0];
     }
+
+    /*
+     * Floyd's algorithm tortoise and hare
+     * Time: O(n)
+     * Space: O(1)
+     */
 
     static public int findDuplicate_floyd(int[] nums) {
 
