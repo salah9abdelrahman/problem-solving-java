@@ -3,6 +3,7 @@ package patterns.fast_slow_patterns;
 /*
  * https://leetcode.com/problems/find-the-duplicate-number/description/
  * constraints: You must solve the problem without modifying the array nums and uses only constant extra space.
+ * A Complete Mathematical Proof of Floyd’s Cycle-Finding Algorithm https://medium.com/@ekelman3/a-complete-mathematical-proof-of-floyds-cycle-finding-algorithm-f1ab765dc99a
  */
 
 public class FindTheDuplicateNumber {
@@ -13,8 +14,8 @@ public class FindTheDuplicateNumber {
         // 6 }));
         // System.out.println(findDuplicate_cyclicSort(new int[] { 1, 5, 4, 3, 2, 4, 6
         // }));
-        System.out.println(findDuplicate_floyd(new int[] { 1, 5, 4, 3, 2, 4, 6}));
-        // System.out.println(findDuplicate_floyd(new int[] { 2, 5, 9, 6, 9, 3, 8, 9, 7, 1 }));
+        // System.out.println(findDuplicate_floyd(new int[] { 1, 5, 4, 3, 2, 4, 6}));
+        System.out.println(findDuplicate_floyd(new int[] { 2, 5, 9, 6, 9, 3, 8, 9, 7, 1 }));
 
     }
 
@@ -92,8 +93,8 @@ public class FindTheDuplicateNumber {
         tortoise = nums[0];
 
         while (tortoise != hare) {
-            tortoise = nums[tortoise];
-            hare = nums[hare];
+        tortoise = nums[tortoise];
+        hare = nums[hare];
         }
 
         return hare;
