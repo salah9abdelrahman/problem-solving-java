@@ -12,7 +12,8 @@ public class ReverseLinkedList {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        head = reverseList(head);
+        // head = reverseList(head);
+        head = reverseList_recursion(head);
         print(head);
 
     }
@@ -52,11 +53,11 @@ public class ReverseLinkedList {
      * Time: O(n)
      * Space: O(n)
      */
-    public ListNode reverseList_recursion(ListNode head) {
+    static public ListNode reverseList_recursion(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode p = reverseList(head.next);
+        ListNode p = reverseList_recursion(head.next);
         head.next.next = head;
         head.next = null;
         return p;
