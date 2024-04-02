@@ -1,4 +1,4 @@
-package algorithms_and_ds.linked_list;
+package linked_list;
 
 public class Main {
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ public class PalindromeLinkedList {
         ListNode ln2 = new ListNode(6);
         ListNode ln3 = new ListNode(2);
         ListNode ln4 = new ListNode(8);
-        ListNode ln5 = new ListNode(1);
+        // ListNode ln5 = new ListNode(1);
         ListNode ln6 = new ListNode(8);
         ListNode ln7 = new ListNode(2);
         ListNode ln8 = new ListNode(6);
@@ -18,14 +18,13 @@ public class PalindromeLinkedList {
         head.next = ln2;
         ln2.next = ln3;
         ln3.next = ln4;
-        ln4.next = ln5;
-        ln5.next = ln6;
+        ln4.next = ln6;
+        // ln5.next = ln6;
         ln6.next = ln7;
         ln7.next = ln8;
         ln8.next = ln9;
 
         System.out.println(isPalindrome(head));
-
 
     }
 
@@ -38,10 +37,17 @@ public class PalindromeLinkedList {
             hare = hare.next.next;
         }
 
-        if (hare != null) {
-            tortoise = tortoise.next;
-        }
+        tortoise = tortoise.next;
 
+        System.out.println(hare);
+        return false;
+
+    }
+
+    static void swapNodes(ListNode lnToSwap1, ListNode lnToSwap2){
+        ListNode temp = lnToSwap1;
+        lnToSwap1.val = lnToSwap2.val;
+        lnToSwap2.val = temp.val;
     }
 
     static public class ListNode {

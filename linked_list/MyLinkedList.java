@@ -1,7 +1,6 @@
-package algorithms_and_ds.linked_list;
+package linked_list;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Set;
 
 public class MyLinkedList {
@@ -202,5 +201,4 @@ public class MyLinkedList {
         }
         return result;
     }
-
 }
