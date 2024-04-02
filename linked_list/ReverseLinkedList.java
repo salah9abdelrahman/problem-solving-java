@@ -17,6 +17,10 @@ public class ReverseLinkedList {
 
     }
 
+    /*
+     * Time: O(n)
+     * Space: O(1)
+     */
     static public ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
@@ -42,7 +46,20 @@ public class ReverseLinkedList {
             curr = nextTemp;
         }
         return prev;
+    }
 
+    /*
+     * Time: O(n)
+     * Space: O(n)
+     */
+    public ListNode reverseList_recursion(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode p = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
     }
 
     static public class ListNode {
