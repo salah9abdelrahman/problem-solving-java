@@ -1,4 +1,4 @@
-package patterns.fast_slow_pointers;
+package fast_slow_pointers;
 
 /*
  * https://leetcode.com/problems/find-the-duplicate-number/description/

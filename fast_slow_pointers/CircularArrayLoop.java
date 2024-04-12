@@ -1,4 +1,4 @@
-package patterns.fast_slow_pointers;
+package fast_slow_pointers;
 
 import java.util.HashSet;
 import java.util.Set;
