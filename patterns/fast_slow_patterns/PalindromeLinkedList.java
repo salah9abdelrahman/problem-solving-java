@@ -27,7 +27,11 @@ public class PalindromeLinkedList {
         node7.next = node8;
         node8.next = node9;
 
+        iterateLinkedList(head);
+
         System.out.println(isPalindrome(head));
+
+        iterateLinkedList(head);
 
     }
 
@@ -37,39 +41,48 @@ public class PalindromeLinkedList {
      */
 
     static public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
         ListNode tortoise = head;
         ListNode hare = head;
+        ListNode endOfFirstHalf = head;
 
         while (hare != null && hare.next != null) {
+            endOfFirstHalf = tortoise;
             tortoise = tortoise.next;
             hare = hare.next.next;
         }
 
         if (hare != null) {
+            endOfFirstHalf = endOfFirstHalf.next;
             tortoise = tortoise.next;
         }
-
-        System.out.println(tortoise);
 
         tortoise = reverseLinkedList(tortoise);
-        System.out.println(tortoise);
 
-        while (tortoise != null) {
-            if (head.val != tortoise.val) {
-                return false;
+        boolean result = true;
+
+        ListNode secondHalf = tortoise;
+
+        while (secondHalf != null) {
+            if (head.val != secondHalf.val) {
+                result = false;
+                break;
             }
-            tortoise = tortoise.next;
+            secondHalf = secondHalf.next;
             head = head.next;
         }
+        tortoise = reverseLinkedList(tortoise);
 
-        return true;
+        endOfFirstHalf.next = tortoise;
+
+        return result;
 
     }
 
     static public ListNode reverseLinkedList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+
         ListNode current = head;
         while (current.next != null) {
             ListNode next = current.next;
@@ -80,6 +93,15 @@ public class PalindromeLinkedList {
         }
         return head;
 
+    }
+
+    static public void iterateLinkedList(ListNode head) {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
     }
 
     static public class ListNode {
