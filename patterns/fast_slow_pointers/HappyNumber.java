@@ -1,4 +1,4 @@
-package patterns.fast_slow_patterns;
+package patterns.fast_slow_pointers;
 
 /**
  * https://leetcode.com/problems/happy-number/description/
