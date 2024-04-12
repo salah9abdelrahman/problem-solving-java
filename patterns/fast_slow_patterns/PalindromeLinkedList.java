@@ -5,28 +5,36 @@ https://leetcode.com/problems/palindrome-linked-list/description/
  */
 public class PalindromeLinkedList {
     public static void main(String[] args) {
-        ListNode head = new ListNode(7);
-        ListNode ln2 = new ListNode(6);
-        ListNode ln3 = new ListNode(2);
-        ListNode ln4 = new ListNode(8);
-        // ListNode ln5 = new ListNode(1);
-        ListNode ln6 = new ListNode(8);
-        ListNode ln7 = new ListNode(2);
-        ListNode ln8 = new ListNode(6);
-        ListNode ln9 = new ListNode(7);
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        // ListNode node4 = new ListNode(5);
+        ListNode node6 = new ListNode(4);
+        ListNode node7 = new ListNode(3);
+        ListNode node8 = new ListNode(2);
+        ListNode node9 = new ListNode(1);
 
-        head.next = ln2;
-        ln2.next = ln3;
-        ln3.next = ln4;
-        ln4.next = ln6;
-        // ln5.next = ln6;
-        ln6.next = ln7;
-        ln7.next = ln8;
-        ln8.next = ln9;
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+
+        // node3.next = node4;
+        // node4.next = node6;
+        node3.next = node6;
+
+        node6.next = node7;
+        node7.next = node8;
+        node8.next = node9;
 
         System.out.println(isPalindrome(head));
 
     }
+
+    /*
+     * Time: O(n)
+     * Space: O(1)
+     */
 
     static public boolean isPalindrome(ListNode head) {
         ListNode tortoise = head;
@@ -37,17 +45,41 @@ public class PalindromeLinkedList {
             hare = hare.next.next;
         }
 
-        tortoise = tortoise.next;
+        if (hare != null) {
+            tortoise = tortoise.next;
+        }
 
-        System.out.println(hare);
-        return false;
+        System.out.println(tortoise);
+
+        tortoise = reverseLinkedList(tortoise);
+        System.out.println(tortoise);
+
+        while (tortoise != null) {
+            if (head.val != tortoise.val) {
+                return false;
+            }
+            tortoise = tortoise.next;
+            head = head.next;
+        }
+
+        return true;
 
     }
 
-    static void swapNodes(ListNode lnToSwap1, ListNode lnToSwap2){
-        ListNode temp = lnToSwap1;
-        lnToSwap1.val = lnToSwap2.val;
-        lnToSwap2.val = temp.val;
+    static public ListNode reverseLinkedList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode current = head;
+        while (current.next != null) {
+            ListNode next = current.next;
+            current.next = next.next;
+            next.next = head;
+            head = next;
+
+        }
+        return head;
+
     }
 
     static public class ListNode {
@@ -65,5 +97,11 @@ public class PalindromeLinkedList {
             this.val = val;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            return "ListNode [val=" + val + ", next=" + next + "]";
+        }
+
     }
 }

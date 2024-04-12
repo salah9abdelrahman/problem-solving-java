@@ -29,7 +29,7 @@ public class ReverseLinkedList {
         ListNode curr = head;
         while (curr.next != null) {
             ListNode next = curr.next;
-            curr.next = curr.next.next;
+            curr.next = next.next;
             next.next = head;
             head = next;
         }
