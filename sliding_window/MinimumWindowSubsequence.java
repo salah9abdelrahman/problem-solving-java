@@ -31,6 +31,13 @@ public class MinimumWindowSubsequence {
                     start = indexS1;
                     end = indexS1;
                     indexS2 -= 1;
+                    /*
+                     * here is the sliding window
+                     * the benefit is to reduce the inner loop number when we now that some characters are useless
+                     * example: s1 = 2000 * a + 20 * b + 500 * c
+                     *          s2 = abbc
+                     * here the inner loop won't loop over all the a except the last one & only the first c letter
+                     */
                     while (indexS2 >= 0) {
                         if (s1.charAt(start) == s2.charAt(indexS2)) {
                             indexS2 -= 1;
