@@ -12,6 +12,9 @@ public class MinimumWindowSubstring {
     }
 
     static public String minWindow(String s, String t) {
+        if (s.equals("") || t.equals("")) {
+            return "";
+        }
         HashMap<Character, Integer> freqHashMapForT = new HashMap<>();
         int minWindow = Integer.MAX_VALUE;
         int[] sol = new int[2];
@@ -23,35 +26,36 @@ public class MinimumWindowSubstring {
         HashMap<Character, Integer> freqHashMapForS = new HashMap<>();
 
         int start = 0;
-        for (int end = 0; end < s.length(); end++) {
-            if(freqHashMapForT.containsKey(s.charAt(end))){
+
+        int required = freqHashMapForT.size();
+        int current = 0;
+        int end;
+        for (end = 0; end < s.length(); end++) {
+            if (freqHashMapForT.containsKey(s.charAt(end))) {
                 freqHashMapForS.put(s.charAt(end), freqHashMapForS.getOrDefault(s.charAt(end), 0) + 1);
+                if (freqHashMapForT.get(s.charAt(end)).intValue() == freqHashMapForS.get(s.charAt(end)).intValue()) {
+                    current++;
+                }
             }
-            while (validWindowFound(freqHashMapForT, freqHashMapForS)) {
+
+
+            while (start <= end && current == required) {
                 if (end - start < minWindow) {
                     minWindow = end - start;
                     sol[0] = start;
                     sol[1] = end;
                 }
-                if(freqHashMapForT.containsKey(s.charAt(start))){
-                freqHashMapForS.put(s.charAt(start), freqHashMapForS.get(s.charAt(start)) - 1);
+                if (freqHashMapForT.containsKey(s.charAt(start))) {
+                    freqHashMapForS.put(s.charAt(start), freqHashMapForS.get(s.charAt(start)) - 1);
+                    if (freqHashMapForT.get(s.charAt(start)) > freqHashMapForS.get(s.charAt(start))) {
+                        current--;
+                    }
                 }
                 start++;
             }
 
         }
-        return minWindow == Integer.MAX_VALUE ? "" : s.substring(sol[0], sol[1] +1);
-    }
-
-    private static boolean validWindowFound(HashMap<Character, Integer> freqHashMapForT,
-            HashMap<Character, Integer> freqHashMapForS) {
-        for (Map.Entry<Character, Integer> entry : freqHashMapForT.entrySet()) {
-            if (freqHashMapForS.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
-                return false;
-            }
-        }
-
-        return true;
+        return minWindow == Integer.MAX_VALUE ? "" : s.substring(sol[0], sol[1] + 1);
     }
 
 
@@ -66,7 +70,7 @@ public class MinimumWindowSubstring {
         // Dictionary which keeps a count of all the unique characters in t.
         Map<Character, Integer> freqHashMapForT = new HashMap<Character, Integer>();
         for (int i = 0; i < t.length(); i++) {
-            freqHashMapForT.put(t.charAt(i),  freqHashMapForT.getOrDefault(t.charAt(i), 0) + 1);
+            freqHashMapForT.put(t.charAt(i), freqHashMapForT.getOrDefault(t.charAt(i), 0) + 1);
         }
 
         // Number of unique characters in t, which need to be present in the desired window.
@@ -81,7 +85,7 @@ public class MinimumWindowSubstring {
         Map<Character, Integer> freqHashMapForS = new HashMap<Character, Integer>();
 
         // ans list of the form (window length, left, right)
-        int[] ans = { -1, 0, 0 };
+        int[] ans = {-1, 0, 0};
 
         while (end < s.length()) {
             // Add one character from the right to the window
@@ -120,6 +124,5 @@ public class MinimumWindowSubstring {
         }
 
         return ans[0] == -1 ? "" : s.substring(ans[1], ans[2] + 1);
-    }
     }
 }
