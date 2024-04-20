@@ -11,6 +11,11 @@ public class MinimumWindowSubstring {
         System.out.println(minWindow("acbbaca", "aba"));
     }
 
+    /*
+    Time: O(S + T)
+    Space O(S + T)
+     */
+
     static public String minWindow(String s, String t) {
         if (s.equals("") || t.equals("")) {
             return "";
