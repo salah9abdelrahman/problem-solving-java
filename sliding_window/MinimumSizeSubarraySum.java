@@ -1,5 +1,8 @@
 package sliding_window;
 
+/*
+https://leetcode.com/problems/minimum-size-subarray-sum/description/
+ */
 public class MinimumSizeSubarraySum {
     public static void main(String[] args) {
 //        System.out.println(minSubArrayLen(7, new int[]{2, 3, 1, 2, 4, 3}));
