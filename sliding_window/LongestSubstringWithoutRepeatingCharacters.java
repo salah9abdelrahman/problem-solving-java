@@ -12,6 +12,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     /*
     Time O(n)
+    space O(n)
      */
     static public int lengthOfLongestSubstring(String s) {
         if (s.equals("")) {
