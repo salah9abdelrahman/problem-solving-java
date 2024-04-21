@@ -1,7 +1,6 @@
 package sliding_window;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 
 /*
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -11,6 +10,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
         System.out.println(lengthOfLongestSubstring("au"));
     }
 
+    /*
+    Time O(n)
+     */
     static public int lengthOfLongestSubstring(String s) {
         if (s.equals("")) {
             return 0;
