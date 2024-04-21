@@ -9,6 +9,7 @@ public class MinimumSizeSubarraySum {
 
     /*
     Time: O(n)
+    Space: O(1)
      */
     static public int minSubArrayLen(int target, int[] nums) {
         int start = 0, end = 0, minLen = Integer.MAX_VALUE, sum = 0;
