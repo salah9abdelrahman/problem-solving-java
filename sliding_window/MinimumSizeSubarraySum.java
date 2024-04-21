@@ -23,6 +23,4 @@ public class MinimumSizeSubarraySum {
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
-
-
 }
