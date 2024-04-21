@@ -7,6 +7,9 @@ public class MinimumSizeSubarraySum {
 //        System.out.println(minSubArrayLen(15, new int[]{5,1,3,5,10,7,4,9,2,8}));
     }
 
+    /*
+    Time: O(n)
+     */
     static public int minSubArrayLen(int target, int[] nums) {
         int start = 0, end = 0, minLen = Integer.MAX_VALUE, sum = 0;
         for (end = 0; end < nums.length; end++) {
@@ -19,7 +22,6 @@ public class MinimumSizeSubarraySum {
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
-
 
 
 }
