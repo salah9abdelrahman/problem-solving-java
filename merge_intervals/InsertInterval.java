@@ -19,6 +19,10 @@ public class InsertInterval {
         }
     }
 
+    /*
+    Time: O(N)
+    Space: O(N)
+     */
     public static int[][] insert(int[][] intervals, int[] newInterval) {
         if (intervals.length == 0) {
             return new int[][]{newInterval};
