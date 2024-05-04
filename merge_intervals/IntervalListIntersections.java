@@ -21,7 +21,10 @@ public class IntervalListIntersections {
         }
     }
 
-
+    /*
+    Time O(N+M)
+    Space O(N+M)
+     */
     public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
         LinkedList<int[]> ans = new LinkedList<>();
         int i = 0, j = 0;
