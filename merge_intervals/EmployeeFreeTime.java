@@ -74,7 +74,10 @@ public class EmployeeFreeTime {
         }
     }
 
-
+    /*
+    Time: O(n* log k)
+    Space: O(k)
+     */
     public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
         PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
 
