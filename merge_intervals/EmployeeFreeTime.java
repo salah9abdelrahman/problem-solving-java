@@ -79,38 +79,55 @@ public class EmployeeFreeTime {
     Space: O(k)
      */
     public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
-        PriorityQueue<int[]> heap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        PriorityQueue<int[]> heap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
+        // Iterate for all employees' schedules
+        // and add start of each schedule's first interval along with
+        // its index value and a value 0.
         for (int i = 0; i < schedule.size(); i++) {
             List<Interval> employeeSchedule = schedule.get(i);
             Interval interval = employeeSchedule.get(0);
             heap.offer(new int[]{interval.start, i, 0});
         }
 
+        // Take an empty list to store results.
         List<Interval> result = new ArrayList<>();
 
+        // Set 'previous' to the start time of the first interval in heap.
         int previous = schedule.get(heap.peek()[1]).get(heap.peek()[2]).start;
 
+        // Iterate until the heap is empty
         while (!heap.isEmpty()) {
+            // Poll an element from the heap and get values of i and j
             int[] tuple = heap.poll();
             int i = tuple[1];
             int j = tuple[2];
 
+            // Select an interval
             Interval interval = schedule.get(i).get(j);
 
+            // If the selected interval's start value is greater than the previous value,
+            // it means that this interval is free. So, add this interval
+            // (previous, interval's end value) into the result.
             if (interval.start > previous) {
                 result.add(new Interval(previous, interval.start));
             }
 
+            // Update the previous as the maximum of previous and interval's end value.
             previous = Math.max(previous, interval.end);
 
+            // If there is another interval in the current employee's schedule,
+            // push that into the heap.
             if (j + 1 < schedule.get(i).size()) {
                 Interval nextInterval = schedule.get(i).get(j + 1);
                 heap.offer(new int[]{nextInterval.start, i, j + 1});
             }
         }
+
+        // When the heap is empty, return the result.
         return result;
     }
+
 
     // Definition for an Interval.
     static class Interval {
