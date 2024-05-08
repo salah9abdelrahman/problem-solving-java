@@ -54,7 +54,7 @@ public class TaskScheduler {
 Time complexity: O(N)
 Space : O(26) = O(1)
  */
-    static public int leastInterval(char[] tasks, int n) {
+    static public int leastInterval_2(char[] tasks, int n) {
         // Create a frequency array to keep track of the count of each task
         int[] freq = new int[26];
         for (char task : tasks) {
@@ -80,10 +80,40 @@ Space : O(26) = O(1)
         return idleSlots > 0 ? idleSlots + tasks.length : tasks.length;
     }
 
+    /*
+Time complexity: O(N)
+Space : O(26) = O(1)
+*/
+    static public int leastInterval_greedy(char[] tasks, int n) {
+        // Counter array to store the frequency of each task
+        int[] counter = new int[26];
+        int maximum = 0;
+        int maxCount = 0;
+
+        // Traverse through tasks to calculate task frequencies
+        for (char task : tasks) {
+            counter[task - 'A']++;
+            if (maximum == counter[task - 'A']) {
+                maxCount++;
+            } else if (maximum < counter[task - 'A']) {
+                maximum = counter[task - 'A'];
+                maxCount = 1;
+            }
+        }
+
+        // Calculate idle slots, available tasks, and idles needed
+        int partCount = maximum - 1;
+        int partLength = n - (maxCount - 1);
+        int emptySlots = partCount * partLength;
+        int availableTasks = tasks.length - maximum * maxCount;
+        int idles = Math.max(0, emptySlots - availableTasks);
+
+        return tasks.length + idles;
+    }
 
 
     public static void main(String[] args) {
-        System.out.println(leastInterval(new char[]{'A', 'A', 'C', 'C', 'C', 'B', 'E', 'E', 'E',}, 2));
+        System.out.println(leastInterval_greedy(new char[]{'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D',}, 3));
     }
 
 
