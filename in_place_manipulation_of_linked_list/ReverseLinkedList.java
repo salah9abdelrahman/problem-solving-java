@@ -12,8 +12,8 @@ public class ReverseLinkedList {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
 
-        // head = reverseList(head);
-        head = reverseList_recursion(head);
+         head = reverseList_leetCode(head);
+//        head = reverseList_recursion(head);
         print(head);
 
     }
