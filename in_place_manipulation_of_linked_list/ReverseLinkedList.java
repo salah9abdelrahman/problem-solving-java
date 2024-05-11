@@ -9,10 +9,10 @@ public class ReverseLinkedList {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
 
-         head = reverseList_leetCode(head);
+        head = reverseList_leetCode(head);
 //        head = reverseList_recursion(head);
         print(head);
 
@@ -27,8 +27,9 @@ public class ReverseLinkedList {
             return null;
         }
         ListNode curr = head;
+        ListNode next;
         while (curr.next != null) {
-            ListNode next = curr.next;
+            next = curr.next;
             curr.next = next.next;
             next.next = head;
             head = next;
