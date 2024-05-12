@@ -1,21 +1,16 @@
 package fast_slow_pointers;
+
 /*
  * https://leetcode.com/problems/middle-of-the-linked-list/description/
  */
 public class MiddleOfTheLinkedList {
     public static void main(String[] args) {
         LinkedListNode n1 = new LinkedListNode(1);
-        LinkedListNode n2 = new LinkedListNode(2);
-        LinkedListNode n3 = new LinkedListNode(3);
-        LinkedListNode n4 = new LinkedListNode(4);
-        LinkedListNode n5 = new LinkedListNode(5);
-        LinkedListNode n6 = new LinkedListNode(6);
- 
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        n4.next = n5;
-        n5.next = n6;
+        n1.next = new LinkedListNode(2);
+        n1.next.next = new LinkedListNode(3);
+        n1.next.next.next = new LinkedListNode(4);
+        n1.next.next.next.next = new LinkedListNode(5);
+//        n1.next.next.next.next.next = new LinkedListNode(6);
 
         System.out.println(middleNode(n1));
     }
