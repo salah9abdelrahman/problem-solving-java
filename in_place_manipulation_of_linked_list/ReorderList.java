@@ -4,6 +4,10 @@ package in_place_manipulation_of_linked_list;
 https://leetcode.com/problems/reorder-list/description/
  */
 public class ReorderList {
+    /*
+    Time O(n)
+    Space O(1)
+     */
     static public void reorderList(ListNode head) {
         if (head == null) return;
 
