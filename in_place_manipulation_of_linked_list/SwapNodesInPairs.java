@@ -14,12 +14,10 @@ public class SwapNodesInPairs {
         }
         ListNode curr = head;
         ListNode newHead = head.next;
-        ListNode nextOfNext;
-        ListNode next;
         ListNode prev = null;
         while (curr != null && curr.next != null) {
-            next = curr.next;
-            nextOfNext = next.next;
+            ListNode next = curr.next;
+            ListNode  nextOfNext = next.next;
             curr.next = nextOfNext;
             next.next = curr;
             if (prev != null) prev.next = next;
