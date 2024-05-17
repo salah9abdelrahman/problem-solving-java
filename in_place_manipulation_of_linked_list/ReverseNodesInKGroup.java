@@ -16,7 +16,6 @@ public class ReverseNodesInKGroup {
         ListNode newHead = null;
         while (curr != null) {
             int count = 0;
-            curr = head;
 
             while (count < k && curr != null) {
                 curr = curr.next;
@@ -78,8 +77,11 @@ public class ReverseNodesInKGroup {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
         head.next.next.next.next.next = new ListNode(6);
+        head.next.next.next.next.next.next = new ListNode(7);
+        head.next.next.next.next.next.next.next = new ListNode(8);
+        head.next.next.next.next.next.next.next.next = new ListNode(9);
+        head.next.next.next.next.next.next.next.next.next = new ListNode(10);
 
-//        head = reverseKGroup_recursion(head, 3);
         head = reverseKGroup(head, 3);
         print(head);
     }
