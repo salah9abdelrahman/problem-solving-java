@@ -10,16 +10,16 @@ public class SwapNodesInPairs {
     space O(n)
     */
     static public ListNode swapPairs_rec(ListNode head) {
-        if ((head == null) || (head.next == null)) {
+        if (head == null || head.next == null) {
             return head;
         }
-        ListNode firstNode = head;
-        ListNode secondNode = head.next;
+        ListNode n1 = head;
+        ListNode n2 = head.next;
 
-        firstNode.next = swapPairs_rec(secondNode.next);
-        secondNode.next = firstNode;
+        n1.next = swapPairs_rec(n2.next);
+        n2.next = n1;
 
-        return secondNode;
+        return n2;
     }
 
     /*
