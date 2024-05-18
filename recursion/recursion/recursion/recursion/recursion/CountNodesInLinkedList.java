@@ -31,7 +31,7 @@ public class CountNodesInLinkedList {
     }
 
 
-    static public class ListNode {
+    static private class ListNode {
         int val;
         ListNode next;
 

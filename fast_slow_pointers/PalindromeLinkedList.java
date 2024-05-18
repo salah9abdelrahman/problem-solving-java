@@ -104,7 +104,7 @@ public class PalindromeLinkedList {
         System.out.println("null");
     }
 
-    static public class ListNode {
+    static private class ListNode {
         int val;
         ListNode next;
 

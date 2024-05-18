@@ -66,7 +66,7 @@ public class SwapNodesInPairs {
     }
 
 
-    static public class ListNode {
+    static private class ListNode {
         int val;
         ListNode next;
 

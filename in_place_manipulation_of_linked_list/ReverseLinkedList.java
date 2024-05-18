@@ -64,7 +64,7 @@ public class ReverseLinkedList {
         return p;
     }
 
-    static public class ListNode {
+    static private class ListNode {
         int val;
         ListNode next;
 
