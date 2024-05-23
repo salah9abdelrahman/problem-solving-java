@@ -8,6 +8,10 @@ import java.util.PriorityQueue;
 https://leetcode.com/problems/ipo/description/
  */
 public class IPO {
+    /*
+    Time o(nlog(n))
+    Space o(
+     */
     static public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         Project[] projects = new Project[capital.length];
         for (int i = 0; i < capital.length; i++) {
