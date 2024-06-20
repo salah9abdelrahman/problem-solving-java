@@ -14,20 +14,25 @@ public class Main {
         tree.insert(32);
         tree.insert(17);
 
-//        tree.traverseInOrder();
-//
-//        System.out.println(tree.get(27));
-//        System.out.println(tree.get(32));
-//        System.out.println(tree.get(80));
-//
-//        System.out.println(tree.min());
-//        System.out.println(tree.max());
-//
-//        tree.delete(27);
-//        tree.delete(25);
-//        tree.traverseInOrder();
+        // tree.traverseInOrder();
 
-        tree.traversePreOrder();
+        // System.out.println(tree.min());
+        // System.out.println(tree.max());
+        //
+        // System.out.println(tree.get(27));
+        // System.out.println(tree.get(32));
+        // System.out.println(tree.get(80));
+        //
+        // System.out.println(tree.min());
+        // System.out.println(tree.max());
+        //
+        // tree.delete(27);
+        // tree.delete(25);
+        // tree.traverseInOrder();
+        tree.delete(25);
+        tree.traverseInOrder();
+
+        // tree.traversePreOrder();
 
     }
 }

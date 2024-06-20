@@ -241,3 +241,5 @@ fabric.properties
 test.java
 problem-solving.iml
 .vscode/
+
+.test

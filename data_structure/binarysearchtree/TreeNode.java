@@ -58,7 +58,7 @@ public class TreeNode {
         if (leftChild != null) {
             leftChild.traverseInOrder();
         }
-        System.out.println(this);
+        System.out.print(this.data + ", ");
 
         if (rightChild != null) {
             rightChild.traverseInOrder();

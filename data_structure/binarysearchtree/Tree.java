@@ -54,7 +54,6 @@ public class Tree {
         root = delete(root, value);
     }
 
-
     private TreeNode delete(TreeNode subtreeRoot, int value) {
         if (subtreeRoot == null) {
             return null;
@@ -65,17 +64,19 @@ public class Tree {
             subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), value));
         } else {
 
-            //The first two cases: 1)the node is a leaf node
-            //                     2)the node has one child
+            // The first two cases: 1)the node is a leaf node
+            // 2)the node has one child
             if (subtreeRoot.getLeftChild() == null) {
                 return subtreeRoot.getRightChild();
-            }
-            else if (subtreeRoot.getRightChild() == null) {
+            } else if (subtreeRoot.getRightChild() == null) {
                 return subtreeRoot.getLeftChild();
             }
-            //The Third case: the node has 2 children
-            // Replace it with  minimum node in the right subtree
+            // The Third case: the node has 2 children
+            // Replace it with minimum node in the right subtree
             subtreeRoot.setData(subtreeRoot.getRightChild().min().getData());
+            // or Replace it with maximum node in the left subtree
+            // subtreeRoot.setData(subtreeRoot.getLeftChild().max().getData());
+
             // delete the replacement node
             subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), subtreeRoot.getData()));
         }

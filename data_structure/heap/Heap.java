@@ -19,24 +19,19 @@ public class Heap {
         return (index - 1) / 2;
     }
 
-    public int getLeftChild(int index) {
+    public int getLeftChildIdx(int index) {
         return 2 * index + 1;
     }
 
-    public int getRightChild(int index) {
+    public int getRightChildIdx(int index) {
         return 2 * index + 2;
-    }
-
-    public int getLeft(int index) {
-        return (2 * index) + 1;
     }
 
     public boolean isEmpty() {
         return size == 0;
     }
 
-
-    //  log(n)
+    // log(n)
     public void insert(int value) {
         if (isFull()) {
             throw new IndexOutOfBoundsException("Heap is full");
@@ -67,7 +62,8 @@ public class Heap {
         return deletedValue;
     }
 
-    public int deleteRoot() {
+    // O(log n)
+    public int poll() {
         if (isEmpty()) {
             throw new IndexOutOfBoundsException("Heap is empty");
         }
@@ -78,7 +74,7 @@ public class Heap {
         return deletedRoot;
     }
 
-    //Heapify max heap
+    // Heapify max heap
     private void fixHeapAbove(int index) {
         int newValue = heap[index];
         while ((index > 0) && (newValue > heap[getParent(index)])) {
@@ -91,11 +87,11 @@ public class Heap {
     private void fixHeapBelow(int index, int lastHeapIndex) {
         int childToSwap;
         while (index <= lastHeapIndex) {
-            int leftChild = getLeftChild(index);
-            int rightChild = getRightChild(index);
+            int leftChild = getLeftChildIdx(index);
+            int rightChild = getRightChildIdx(index);
             // Has a left child?
             if (leftChild <= lastHeapIndex) {
-                // Has a right child?
+                // Has no right child?
                 if (rightChild > lastHeapIndex) {
                     // there is only left child and no right child
                     childToSwap = leftChild;
@@ -128,8 +124,8 @@ public class Heap {
     }
 
     /*
-    1) swap the root with the last element in the heap
-    2) heapify the heap except the last element
+     * 1) swap the root with the last element in the heap
+     * 2) heapify the heap except the last element
      */
     // o nlog(n)
     // if used will be no longer a heap
@@ -150,6 +146,5 @@ public class Heap {
         }
         System.out.println("\n************");
     }
-
 
 }
