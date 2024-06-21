@@ -17,7 +17,9 @@ public class IPO {
         for (int i = 0; i < capital.length; i++) {
             projects[i] = new Project(capital[i], profits[i]);
         }
+        // min sort for capitals
         Arrays.sort(projects);
+        // max heap for profits
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(projects.length, Collections.reverseOrder());
         int ptr = 0;
         for (int i = 0; i < k; i++) {
