@@ -23,6 +23,10 @@ public class FindMedianFromDataStream {
             maxHeapForSmallHalf = new PriorityQueue<>(Collections.reverseOrder());
         }
 
+        /*
+         * Time: O(log n)
+         * Space O(n)
+         */
         public void addNum(int num) {
             if (maxHeapForSmallHalf.isEmpty() || maxHeapForSmallHalf.peek() >= num) {
                 maxHeapForSmallHalf.add(num);
@@ -30,21 +34,23 @@ public class FindMedianFromDataStream {
                 minHeapForHigherHalf.add(num);
             }
 
-            //balancing the 2-heaps
-            if(maxHeapForSmallHalf.size() > minHeapForHigherHalf.size() + 1){
+            // balancing the 2-heaps
+            if (maxHeapForSmallHalf.size() > minHeapForHigherHalf.size() + 1) {
                 minHeapForHigherHalf.add(maxHeapForSmallHalf.poll());
-            }
-            else if (maxHeapForSmallHalf.size() < minHeapForHigherHalf.size()) {
+            } else if (maxHeapForSmallHalf.size() < minHeapForHigherHalf.size()) {
                 maxHeapForSmallHalf.add(minHeapForHigherHalf.poll());
             }
         }
 
+        /*
+         * Time: O(1)
+         */
         public double findMedian() {
             if (maxHeapForSmallHalf.size() == minHeapForHigherHalf.size()) {
-              return maxHeapForSmallHalf.peek() / 2.0 + minHeapForHigherHalf.peek() / 2.0;
+                return maxHeapForSmallHalf.peek() / 2.0 + minHeapForHigherHalf.peek() / 2.0;
             }
             return maxHeapForSmallHalf.peek();
-          }
+        }
     }
 
 }
