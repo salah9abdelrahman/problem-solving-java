@@ -1,5 +1,6 @@
 package two_heaps;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
@@ -20,7 +21,7 @@ public class FindMedianFromDataStream {
 
         public MedianFinder() {
             minHeapForHigherHalf = new PriorityQueue<>();
-            maxHeapForSmallHalf = new PriorityQueue<>(Collections.reverseOrder());
+            maxHeapForSmallHalf = new PriorityQueue<>( Collections.reverseOrder() );
         }
 
         /*
@@ -42,6 +43,14 @@ public class FindMedianFromDataStream {
             }
         }
 
+        public void addNum_leetcode(int num) {
+            maxHeapForSmallHalf.add(num);
+            minHeapForHigherHalf.add(maxHeapForSmallHalf.poll());
+            if (minHeapForHigherHalf.size() > maxHeapForSmallHalf.size()) {
+                maxHeapForSmallHalf.add(minHeapForHigherHalf.poll());
+            }
+        }
+
         /*
          * Time: O(1)
          */
@@ -50,6 +59,13 @@ public class FindMedianFromDataStream {
                 return maxHeapForSmallHalf.peek() / 2.0 + minHeapForHigherHalf.peek() / 2.0;
             }
             return maxHeapForSmallHalf.peek();
+        }
+
+        public void printHeaps() {
+            System.out.print("Max heap: " + Arrays.toString(maxHeapForSmallHalf.toArray()) + " , ");
+            System.out.println("Min heap: " + Arrays.toString(minHeapForHigherHalf.toArray()));
+        
+
         }
     }
 
