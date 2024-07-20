@@ -17,6 +17,10 @@ public class MergeSortedArray {
         System.out.println(Arrays.toString(nums1));
     }
 
+    /*
+    Time: O(m+n)
+    Space: O(1)
+     */
     static public void merge(int[] nums1, int m, int[] nums2, int n) {
         int p1 = m - 1;
         int p2 = n - 1;
