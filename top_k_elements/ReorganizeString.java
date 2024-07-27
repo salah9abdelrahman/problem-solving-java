@@ -11,7 +11,7 @@ public class ReorganizeString {
     }
 
     /*
-    Time: O(n log n)
+    Time: O(n log k)
      */
     static public String reorganizeString(String s) {
         HashMap<Character, Integer> count = new HashMap<>(s.length());
