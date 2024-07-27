@@ -11,7 +11,7 @@ public class KClosestPointsToOrigin {
 
     /**
      * Time O(n log k)
-     *
+     * Space O(k)
      * @param points
      * @param k
      * @return
@@ -34,7 +34,6 @@ public class KClosestPointsToOrigin {
     }
 
     static private double calculate(int[] p) {
-        double sqrt = Math.sqrt(p[0] * p[0] + p[1] * p[1]);
-        return sqrt;
+        return p[0] * p[0] + p[1] * p[1];
     }
 }
