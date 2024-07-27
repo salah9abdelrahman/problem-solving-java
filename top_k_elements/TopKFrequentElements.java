@@ -9,7 +9,7 @@ public class TopKFrequentElements {
     }
 
     /**
-     * bucket sort
+     * bucket sort because top_k_elements with heap will take O(n log k)
      * Time O(n)
      * space O(k)
      */
