@@ -12,6 +12,7 @@ public class BinarySearch {
 class Solution {
     /*
      * Time O(log n)
+     * Space O(1)
      */
     public int search(int[] nums, int target) {
         int start = 0;
