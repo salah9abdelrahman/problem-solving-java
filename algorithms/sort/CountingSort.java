@@ -5,12 +5,20 @@ import algorithms.UtilFunctions;
 public class CountingSort {
     public static void main(String[] args) {
         int[] arr = {2, 5, 9, 8, 2, 8, 7, 10, 4, 3};
-        countingSort(arr, 1, 16);
+        countingSort(arr);
         UtilFunctions.print(arr);
     }
 
     // min and max of the assumption values
-    static void countingSort(int[] input, int min, int max) {
+    static void countingSort(int[] input) {
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+        // finding min & max
+        for(int i: input){
+            max = Math.max(max, i);
+            min = Math.min(min, i);
+        }
         int[] countArray = new int[(max - min + 1)];
 //
 
