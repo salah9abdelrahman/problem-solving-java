@@ -9,7 +9,6 @@ public class CountingSort {
         UtilFunctions.print(arr);
     }
 
-    // min and max of the assumption values
     static void countingSort(int[] input) {
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
