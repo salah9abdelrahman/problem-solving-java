@@ -3,13 +3,14 @@ package modified_binary_search;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        System.out.println(new Solution().search(new int[]{5}, 5));
+//        System.out.println(new BinarySearchSolution().search(new int[]{5}, 5));
+        System.out.println(new BinarySearchSolution().search(new int[]{1,3}, 3));
     }
 
 
 }
 
-class Solution {
+class BinarySearchSolution {
     /*
      * Time O(log n)
      * Space O(1)
