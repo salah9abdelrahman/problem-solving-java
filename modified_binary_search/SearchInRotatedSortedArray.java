@@ -17,6 +17,7 @@ class SearchInRotatedSortedArraySolution {
      * Space O(1)
      */
     public int search(int[] nums, int target) {
+        // pivot is the index of the smallest value
         int pivot = searchForPivot(nums);
 
         int searchFirstHalf = binarySearch(nums, target, pivot, nums.length - 1);
