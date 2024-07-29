@@ -12,23 +12,12 @@ public class SearchInRotatedSortedArray {
 }
 
 class SearchInRotatedSortedArraySolution {
-    /*
+    /**
      * Time O(log n)
      * Space O(1)
      */
     public int search(int[] nums, int target) {
-        if (nums.length == 1) {
-            if (nums[0] == target) {
-                return 0;
-            }
-            return -1;
-        }
         int pivot = searchForPivot(nums);
-
-        // no pivot so regular BS
-        if (pivot == -1) {
-            return binarySearch(nums, target);
-        }
 
         int searchFirstHalf = binarySearch(nums, target, pivot, nums.length - 1);
         if (searchFirstHalf != -1) {
@@ -50,22 +39,6 @@ class SearchInRotatedSortedArraySolution {
             }
         }
         return start;
-    }
-
-    private int binarySearch(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length - 1;
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            } else if (nums[mid] > target) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return -1;
     }
 
     private int binarySearch(int[] nums, int target, int start, int end) {
