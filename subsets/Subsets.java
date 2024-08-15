@@ -6,11 +6,15 @@ import java.util.List;
 
 public class Subsets {
     public static void main(String[] args) {
-        System.out.println(new SubsetsSolution().subsets(new int[]{1, 2, 3}));
+        System.out.println(new SubsetsCascadingSolution().subsets(new int[]{1, 2, 3}));
     }
 }
 
-class SubsetsSolution {
+class SubsetsCascadingSolution {
+    /**
+     * Time O(2 ** N)
+     * Space O(2 ** N)
+     */
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
         output.add(new ArrayList<>());
@@ -26,3 +30,12 @@ class SubsetsSolution {
         return output;
     }
 }
+
+//class SubsetsBacktrackingSolution {
+//    List<List<Integer>> output = new ArrayList();
+//    int n, k;
+//
+//
+//    public List<List<Integer>> subsets(int[] nums) {
+//    }
+//}
