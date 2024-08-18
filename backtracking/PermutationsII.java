@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/permutations-ii/description/
-package subsets;
+package backtracking;
 
 import java.util.*;
 
@@ -10,6 +10,10 @@ public class PermutationsII {
 }
 
 class PermutationsIISolution {
+    /**
+     * @time O(n * n!)
+     * @space O(n)
+     */
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         HashMap<Integer, Integer> counter = new HashMap<>();
