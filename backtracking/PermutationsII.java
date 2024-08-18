@@ -5,11 +5,12 @@ import java.util.*;
 
 public class PermutationsII {
     public static void main(String[] args) {
-        System.out.println(new PermutationsIISolution().permuteUnique(new int[]{1, 1, 2}));
+        System.out.println(new PermutationsIIBacktrackingSolution().permuteUnique(new int[]{1, 1, 2}));
+        System.out.println(new PermutationsIIBacktrackingSolution2().permuteUnique(new int[]{1, 1, 2}));
     }
 }
 
-class PermutationsIISolution {
+class PermutationsIIBacktrackingSolution {
     /**
      * @time O(n * n!)
      * @space O(n)
@@ -45,4 +46,35 @@ class PermutationsIISolution {
         }
     }
 
+}
+
+class PermutationsIIBacktrackingSolution2 {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtracking(nums, new boolean[nums.length + 1], result, new LinkedList<>(), nums.length);
+        return result;
+    }
+
+    private void backtracking(int[] nums, boolean[] visited, List<List<Integer>> result, LinkedList<Integer> curr,
+                              int n) {
+        if (curr.size() == n) {
+            result.add(new ArrayList<>(curr));
+            return;
+        }
+        HashSet<Integer> uniqueVisited = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (visited[i] || uniqueVisited.contains(nums[i]))
+                continue;
+
+            curr.addLast(nums[i]);
+            visited[i] = true;
+            uniqueVisited.add(nums[i]);
+
+            backtracking(nums, visited, result, curr, n);
+
+            curr.removeLast();
+            visited[i] = false;
+
+        }
+    }
 }
