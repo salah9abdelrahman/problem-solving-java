@@ -31,16 +31,6 @@ class LetterCombinationsOfAPhoneNumberSolution {
 
         List<String> strings = new ArrayList<>();
 
-
-        if (digits.length() == 1) {
-            String s = keyboard.get(digits.charAt(0));
-            for (int i = 0; i < s.length(); i++) {
-                strings.add(String.valueOf(s.charAt(i)));
-            }
-            return strings;
-        }
-
-
         for (int i = 0; i < digits.length(); i++) {
             strings.add(keyboard.get(digits.charAt(i)));
         }
