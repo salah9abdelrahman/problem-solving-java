@@ -12,6 +12,10 @@ public class LetterCombinationsOfAPhoneNumber {
 }
 
 class LetterCombinationsOfAPhoneNumberSolution {
+    /**
+     * @time O(4^n * n)
+     * @space  O(n) where n is size of  digits (the recursion stack)
+     */
     public List<String> letterCombinations(String digits) {
         if (digits.isEmpty()) {
             return List.of();
