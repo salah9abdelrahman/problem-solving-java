@@ -17,12 +17,18 @@ class CombinationsSolution {
         return result;
     }
 
-    private void backtracking(int n, int k, List<List<Integer>> result, List<Integer> curr, int j) {
+    private void backtracking(int n, int k, List<List<Integer>> result, List<Integer> curr, int first) {
         if (curr.size() == k) {
             result.add(new ArrayList<>(curr));
             return;
         }
-        for (int i = j; i <= n; i++) {
+
+        // optimization
+        int need = k - curr.size();
+        int remain = n - first + 1;
+        int available = remain - need;
+
+        for (int i = first; i <= first + available; i++) {
             curr.add(i);
 
             backtracking(n, k, result, curr, i + 1);

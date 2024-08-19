@@ -13,29 +13,32 @@ public class Permutations {
 class PermutationBacktrackingSolution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
-        backtrack(nums, output, new ArrayList<>(), new HashSet<>());
+        backtrack(nums, output, new ArrayList<>(), new boolean[nums.length]);
         return output;
 
     }
+
     /**
      * Time O(n * n!) first n for copying curr array to output
      * space O(n)
      */
-    private void backtrack(int[] nums, List<List<Integer>> output, ArrayList<Integer> curr, Set<Integer> visited) {
+    private void backtrack(int[] nums, List<List<Integer>> output, ArrayList<Integer> curr, boolean[] visited) {
         if (curr.size() == nums.length) {
             output.add(new ArrayList<>(curr));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (!visited.contains(nums[i])) {
-                curr.add(nums[i]);
-                visited.add(nums[i]);
-
-                backtrack(nums, output, curr, visited);
-
-                curr.remove(curr.size() - 1);
-                visited.remove(nums[i]);
+            if (visited[i]) {
+                continue;
             }
+
+            curr.add(nums[i]);
+            visited[i] = true;
+
+            backtrack(nums, output, curr, visited);
+
+            curr.remove(curr.size() - 1);
+            visited[i] = false;
         }
     }
 }
