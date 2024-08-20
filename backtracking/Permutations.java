@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/permutations/description/
-package subsets;
+package backtracking;
 
 import java.util.*;
 
