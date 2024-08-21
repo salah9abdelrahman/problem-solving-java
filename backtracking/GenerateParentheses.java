@@ -44,6 +44,9 @@ class GenerateParenthesesBacktrackingSolution {
 }
 
 class GenerateParenthesesDivideConquerSolution {
+    /**
+     * Damn
+     */
     public List<String> generateParenthesis(int n) {
         if (n == 0) {
             return new ArrayList<>(List.of(""));
