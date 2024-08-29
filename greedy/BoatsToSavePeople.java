@@ -9,7 +9,7 @@ public class BoatsToSavePeople {
 
 /**
  * @time O(n log n)
- * @space o(1)
+ * @space o(n)
  */
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
