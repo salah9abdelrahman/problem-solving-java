@@ -7,12 +7,29 @@ import java.util.PriorityQueue;
  * @time O(n log n)
  * @space O(log n)
  */
+
+ /*
+        instead of using heap, we can use sort arrays by a-costs[i] - b-a-costs[i]
+         Arrays.sort(costs, new Comparator<int[]>() {
+      @Override
+      public int compare(int[] o1, int[] o2) {
+        return o1[0] - o1[1] - (o2[0] - o2[1]);
+      }
+    });
+
+    int total = 0;
+    int n = costs.length / 2;
+    for (int i = 0; i < n; ++i) total += costs[i][0] + costs[i + n][1];
+    return total;
+
+         */
 class TwoCitySchedulingSolution {
     public int twoCitySchedCost(int[][] costs) {
         int aNum = 0;
         int bNum = 0;
         int result = 0;
         int n = costs.length;
+
 
         PriorityQueue<Element> heap = new PriorityQueue<>(n);
 
@@ -23,7 +40,7 @@ class TwoCitySchedulingSolution {
         while (!heap.isEmpty()) {
             Element e = heap.poll();
             if (e.isATheMin()) {
-                if (aNum < n/2) {
+                if (aNum < n / 2) {
                     aNum++;
                     result += e.a;
                 } else {
@@ -32,7 +49,7 @@ class TwoCitySchedulingSolution {
 
                 }
             } else {
-                if (bNum < n/2) {
+                if (bNum < n / 2) {
                     bNum++;
                     result += e.b;
                 } else {
@@ -66,8 +83,6 @@ class Element implements Comparable<Element> {
         return e.cost - this.cost;
     }
 }
-
-
 
 
 public class TwoCityScheduling {
