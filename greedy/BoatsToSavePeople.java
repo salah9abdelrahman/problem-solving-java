@@ -11,7 +11,7 @@ public class BoatsToSavePeople {
  * @time O(n log n)
  * @space o(n)
  */
-class Solution {
+class BoatsToSavePeopleSolution {
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
         int boats = 0;
