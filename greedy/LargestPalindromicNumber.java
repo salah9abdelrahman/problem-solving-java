@@ -1,5 +1,10 @@
+// https://leetcode.com/problems/largest-palindromic-number/description/
 package greedy;
 
+/**
+ * @time o(n)
+ * @space o(n)
+ */
 class LargestPalindromicSolution {
     public String largestPalindromic(String num) {
 
