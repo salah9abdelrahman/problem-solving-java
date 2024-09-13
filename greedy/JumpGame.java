@@ -3,8 +3,9 @@ package greedy;
 
 public class JumpGame {
     public static void main(String[] args) {
-        System.out.println(new JumpGameGreedySolution().canJump(new int[]{3, 2, 2, 1, 1, 0, 1}));
-        System.out.println(new JumpGameGreedySolution().canJump(new int[]{2, 3, 1, 1, 4}));
+//        System.out.println(new JumpGameGreedySolution().canJump(new int[]{3, 2, 2, 1, 1, 0, 1}));
+//        System.out.println(new JumpGameDPBottomUpSolution().canJump(new int[]{3, 2, 2, 1, 1, 0, 1}));
+        System.out.println(new JumpGameDPBottomUpSolution().canJump(new int[]{2, 3, 1, 1, 4}));
     }
 }
 
