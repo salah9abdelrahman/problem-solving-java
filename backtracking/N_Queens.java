@@ -6,6 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @time o(n!)
+ * @space o(n^2)
+ */
 class N_Queens_Backtracking_Solution {
     private int size;
     private List<List<String>> solutions = new ArrayList<List<String>>();
