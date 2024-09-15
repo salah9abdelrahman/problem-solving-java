@@ -7,7 +7,7 @@ package backtracking;
  * @space O(L)
  * why? the recursion call stack
  */
-class Solution {
+class WordSearch_backtracking_solution {
     int[][] VALID_MOVES = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     int ROW_NUM;
     int COL_NUM;
@@ -56,7 +56,7 @@ class Solution {
 
 public class WordSearch {
     public static void main(String[] args) {
-        System.out.println(new Solution().exist(
+        System.out.println(new WordSearch_backtracking_solution().exist(
                 new char[][]{
                         {'A', 'B', 'C', 'E'},
                         {'S', 'F', 'C', 'S'},
