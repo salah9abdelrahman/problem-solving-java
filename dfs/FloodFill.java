@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/flood-fill/description/
-package backtracking;
+package dfs;
 
 import java.util.Arrays;
 
