@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class Solution {
+class MinimumMovesToSpreadStonesOverGridSolution {
     int[][] POSSIBLE_MOVES = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
     int ROW_NUM;
     int COL_NUM;
@@ -62,7 +62,7 @@ class Solution {
 
 public class MinimumMovesToSpreadStonesOverGrid {
     public static void main(String[] args) {
-        System.out.println(new Solution().minimumMoves(new int[][]{
+        System.out.println(new MinimumMovesToSpreadStonesOverGridSolution().minimumMoves(new int[][]{
                 {3, 2, 0},
                 {0, 1, 0},
                 {0, 3, 0},
