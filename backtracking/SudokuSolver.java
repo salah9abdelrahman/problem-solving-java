@@ -14,7 +14,7 @@ public class SudokuSolver {
     }
 }
 
-class Solution {
+class SudokuSolverSolution {
     public void solveSudoku(char[][] board) {
         List<int[]> emptyCells = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
