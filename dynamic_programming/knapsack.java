@@ -8,8 +8,8 @@ public class knapsack {
 }
 
 /**
- * @time O(n * m) values.len * capacity
- * @space O(n * m)
+ * @time O(n * c) values.len * capacity
+ * @space O(n * c)
  */
 class knapsack_bottomUp_Solution {
     public int findMaxKnapsackProfit(int capacity, int[] weights, int[] values) {
@@ -36,8 +36,8 @@ class knapsack_bottomUp_Solution {
 }
 
 /**
- * @time O(n * m) values.len * capacity
- * @space O(m)
+ * @time O(n * c) values.len * capacity
+ * @space O(c)
  */
 class knapsack_bottomUp_spaceOptimize_Solution {
     public int findMaxKnapsackProfit(int capacity, int[] weights, int[] values) {
