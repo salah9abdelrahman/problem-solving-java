@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class CoinChange {
     public static void main(String[] args) {
-        System.out.println(new CoinChangeSolution_bottomUp().coinChange(new int[]{1, 2, 5}, 11));
+        System.out.println(new CoinChangeSolution_topDown().coinChange(new int[]{1, 2, 5}, 11));
 //        System.out.println(new CoinChangeSolution_topDown().coinChange(new int[]{186, 419, 83, 408}, 6249));
     }
 
@@ -19,8 +19,6 @@ class CoinChangeSolution_topDown {
     public int coinChange(int[] coins, int amount) {
         return dp(coins, amount, new int[amount + 1]);
     }
-
-    int monCount = Integer.MAX_VALUE;
 
     private int dp(int[] coins, int amount, int[] memo) {
         if (amount < 0) return -1;
@@ -42,6 +40,7 @@ class CoinChangeSolution_topDown {
  * @space O(A)
  */
 class CoinChangeSolution_bottomUp {
+    // min(amount) = min (amount - coin) + 1
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] tabu = new int[amount + 1];
