@@ -30,12 +30,15 @@ class Matrix_BFS_Solution {
     public int[][] updateMatrix(int[][] mat) {
         m = mat.length;
         n = mat[0].length;
+        // to not modify the input
+         int[][] result = new int[m][n];
         boolean[][] visited = new boolean[m][n];
         Queue<Node> queue = new LinkedList<>();
 
 
         for (int row = 0; row < m; row++) {
             for (int col = 0; col < n; col++) {
+                 result[row][col] = mat[row][col];
                 if (mat[row][col] == 0) {
                     queue.add(new Node(row, col, 0));
                     visited[row][col] = true;
@@ -52,14 +55,14 @@ class Matrix_BFS_Solution {
                 if (valid(nextRow, nextCol) && !visited[nextRow][nextCol]) {
                     queue.add(new Node(nextRow, nextCol, current.steps + 1));
                     visited[nextRow][nextCol] = true;
-                    mat[nextRow][nextCol] = current.steps + 1;
+                    result[nextRow][nextCol] = current.steps + 1;
 
                 }
             }
         }
 
 
-        return mat;
+        return result;
     }
 
     public boolean valid(int row, int col) {
