@@ -26,24 +26,27 @@ public class SwapNodesInPairs {
     Time O(n)
     space O(1)
      */
-    static public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
+    static ListNode swapPairs(ListNode head) {
+       ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+
+        ListNode prev = dummy;
+
+        while (head != null && head.next != null){
+           ListNode p1 = head;
+            ListNode p2 = head.next;
+
+            prev.next = p2;
+            p1.next = p2.next;
+            p2.next = p1;
+
+            prev = p1;
+            head= p1.next;
+
         }
-        ListNode curr = head;
-        ListNode newHead = head.next;
-        ListNode prev = null;
-        while (curr != null && curr.next != null) {
-            ListNode next = curr.next;
-            ListNode nextOfNext = next.next;
-            curr.next = nextOfNext;
-            next.next = curr;
-            if (prev != null) prev.next = next;
-            prev = curr;
-            curr = nextOfNext;
-        }
-        return newHead;
+        return dummy.next;
     }
+
 
 
     public static void main(String[] args) {
@@ -61,7 +64,7 @@ public class SwapNodesInPairs {
 //        head.next.next.next.next.next.next.next.next.next.next.next = new ListNode(12);
 //        head.next.next.next.next.next.next.next.next.next.next.next.next = new ListNode(13);
 
-        head = swapPairs_rec(head);
+        head = swapPairs(head);
         print(head);
     }
 
