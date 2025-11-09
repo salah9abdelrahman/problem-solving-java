@@ -8,8 +8,9 @@ public class ReverseLinkedListII {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = new ListNode(6);
 
-        head = new ReverseLinkedListIISolution().reverseBetween(head, 1, 2);
+        head = new ReverseLinkedListIISolution().reverseBetween_educative(head, 2, 5);
         ListNode curr = head;
         while (curr != null) {
             System.out.print(curr.val + "->");
@@ -36,6 +37,7 @@ class ReverseLinkedListIISolution {
                 prevToLeft = currToGetRefs;
             } else if (counter == right + 1) {
                 nextToRightN = currToGetRefs;
+                break;
             } else if (counter == left) {
                 leftN = currToGetRefs;
             } else if (counter == right) {
@@ -63,4 +65,31 @@ class ReverseLinkedListIISolution {
 
         return head;
     }
+
+    ListNode reverseBetween_educative(ListNode head, int left, int right) {
+
+        if (head == null || left == right) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+
+        for (int i = 0; i < left - 1; i++) {
+            prev = prev.next;
+        }
+
+        ListNode curr = prev.next;
+
+        for (int i = 0; i < right - left; i++) {
+            ListNode nextNode = curr.next;
+            curr.next = nextNode.next;
+            nextNode.next = prev.next;
+            prev.next = nextNode;
+        }
+
+        return dummy.next;
+    }
+
 }
